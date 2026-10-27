@@ -1,0 +1,17 @@
+.git
+.gitignore
+scheduler.db
+scheduler.db-shm
+scheduler.db-wal
+scheduler.db-journal
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+.env
+.env.*
+data
+go-todo
+go_final_project
+*.test
+*.out

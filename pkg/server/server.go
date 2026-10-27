@@ -1,4 +1,3 @@
-// Package server configures and starts the application's HTTP server.
 package server
 
 import (
@@ -7,17 +6,24 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/Yandex-Practicum/go_final_project/pkg/api"
 )
 
 func Run() error {
+	api.Init()
 	port := os.Getenv("TODO_PORT")
 	if port == "" {
 		port = "7540"
 	}
 
+	mux := http.NewServeMux()
+	mux.Handle("/api/", http.DefaultServeMux)
+	mux.Handle("/", http.FileServer(http.Dir("web")))
+
 	srv := &http.Server{
 		Addr:              ":" + port,
-		Handler:           http.FileServer(http.Dir("web")),
+		Handler:           mux,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 

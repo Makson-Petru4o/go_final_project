@@ -1,0 +1,15 @@
+scheduler.db
+scheduler.db-wal
+scheduler.db-shm
+scheduler.db-journal
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+.env
+.env.*
+/data/
+/go-todo
+/go_final_project
+*.test
+*.out
